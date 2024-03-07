@@ -1,0 +1,121 @@
+:root {
+  --violet: hsl(263, 55%, 52%);
+  --dark-blue: hsl(219, 29%, 14%);
+  --dark-grayish-blue: hsl(217, 19%, 35%);
+  --white: hsl(0, 0%, 100%);
+  --gray: hsl(0, 0%, 81%);
+  --light-gray: hsl(210, 46%, 95%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--light-gray);
+  font-size: 15px;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 500;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 2em 1em;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 1em;
+}
+
+.item {
+  background-color: var(--white);
+  border-radius: 1em;
+  color: var(--dark-grayish-blue);
+  padding: 1em;
+}
+
+.item.item__primary {
+  background-color: var(--violet);
+  background-image: url("../images/bg-pattern-quotation.svg");
+  background-repeat: no-repeat;
+  background-position: 88% 0%;
+  color: var(--light-gray);
+}
+
+.item.item__gray {
+  background-color: var(--dark-grayish-blue);
+  color: var(--light-gray);
+}
+
+.item.item__dark {
+  background-color: var(--dark-blue);
+  color: var(--light-gray);
+}
+
+.item__header {
+  display: flex;
+  align-items: center;
+}
+
+.item__header--image > img {
+  height: 2.5em;
+  width: 2.5em;
+  border: 2px solid var(--gray);
+  border-radius: 50%;
+}
+
+.item.item__primary .item__header--image > img {
+  border: 2px solid var(--gray);
+}
+
+.item.item__dark .item__header--image > img {
+  border: 2px solid var(--violet);
+}
+
+.item__header--info {
+  margin-left: 1em;
+}
+
+.item__header--info > p {
+  opacity: 0.5;
+}
+
+.item__body h4 {
+  font-size: 1.5em;
+  padding-top: 1em;
+}
+
+.item__body p {
+  font-size: 0.85em;
+  opacity: 0.75;
+  padding-top: 1em;
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .item__primary {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  .item__light {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+
+  .item__dark {
+    grid-column-start: 2;
+    grid-column-end: 4;
+  }
+
+  .item__long {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 4;
+    grid-column-end: 5;
+  }
+}
